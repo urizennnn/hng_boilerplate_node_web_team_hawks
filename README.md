@@ -1,8 +1,8 @@
-# [App Name] Integration Documentation
+# Teamhawk Integration Documentation
 
 ## Overview
 
-[Description]
+This repository contains our backend API which is designed for a comprehensive platform to handle featurs such as user authentication, organisation managements, payments, notifications, messages and much more.
 
 ## Folder Structure
 
@@ -251,6 +251,11 @@ By following these steps, you should have your Node.js and TypeScript applicatio
 
 All API endpoints can be referenced in the [API Reference](API_REFERENCE.md) document.
 
+## Database Blueprint
+The database blueprint for this api is avaliable below
+
+<img src="./src/assets/db_blueprint.png" alt="database blueprint" />
+
 ## Versioning
 
-This project is versioned to ensure backward compatibility and easy maintenance. The current version is [version].
+This project is versioned to ensure backward compatibility and easy maintenance. The current version is 1.0.0

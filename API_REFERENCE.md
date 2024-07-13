@@ -1,4 +1,4 @@
-# [App Name] Integration API Documentation
+# Teamhawk Integration API Documentation
 
 ## Overview
 
@@ -56,4 +56,4 @@
 
 ## Versioning
 
-This API is versioned to ensure backward compatibility and easy maintenance. The current version is [version].
+This API is versioned to ensure backward compatibility and easy maintenance. The current version is 1.0.0.
