@@ -251,10 +251,27 @@ By following these steps, you should have your Node.js and TypeScript applicatio
 
 All API endpoints can be referenced in the [API Reference](API_REFERENCE.md) document.
 
+## API Specification
+The API specifiations can be referenced at [API Specification](https://teamhawks-api-ui.vercel.app/)
+
 ## Database Blueprint
 The database blueprint for this api is avaliable below
 
 <img src="./src/assets/db_blueprint.png" alt="database blueprint" />
+
+The relationship between the entities are as follows:
+- **User and Blog:** One user has many blogs; 1:M
+- **User and GDPRCookie:** One user has many GDPR Cookies; 1:M
+- **User and ProfileSettings:** One user has many Profile Settings; 1:M
+- **User and Message:** One user has one or more messages; 1:1..*
+- **User and Authentication:** One user has one or more authentications; 1:1..*
+- **User and Notification:** One user has many notifications; 1:M
+- **Notification and InviteLinks:** One Notification contains one invite link; 1:1
+- **User and Payment:** One user has many payments; 1:M
+- **Payment and Organisation:** One payment belongs to one organisation; 1:1
+- **Organisation and Waitlist:** One Organisation has many Waitlist; M:N
+- **Organisation and MarketingPages:** One Organisation user has many Marketing Pages; 1:M
+- **Superadmin and Template:** One Superadmin has many templates; 1:M
 
 ## Versioning
 
