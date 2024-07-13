@@ -444,8 +444,7 @@
         }
       }
     },
-    "/orgs": {},
-    "/blog": {},
+    "/blogs": {},
     "/auth/login": {},
     "/auth/register": {},
     "/email": {}
