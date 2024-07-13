@@ -57,7 +57,7 @@
         }
       },
       "post": {
-        "summary": "Create new blog",
+        "summary": "Create a new blog",
         "security": [
           {
             "bearerAuth": []
