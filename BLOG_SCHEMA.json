@@ -143,120 +143,114 @@
             "$ref": "#/components/responses/500"
           }
         }
-      }
-    },
+      },
 
-    "put": {
-      "summary": "Update a blog",
-      "description": "Updates an existing blog.",
-      "parameters": [
-        {
-          "in": "path",
-          "name": "blogId",
-          "schema": {
-            "type": "string"
-          },
-          "required": true,
-          "description": "The ID of the blog to update"
-        }
-      ],
-      "requestBody": {
-        "content": {
-          "application/json": {
+      "put": {
+        "summary": "Update a blog",
+        "description": "Updates an existing blog.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "blogId",
             "schema": {
-              "$ref": "#/components/schemas/Blog"
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the blog to update"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Blog"
+              }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Blog updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Blog updated successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Blog"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Blog not found",
+            "content": {
+              "$ref": "#/components/responses/404/content"
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
           }
         }
       },
-      "responses": {
-        "200": {
-          "description": "Blog updated successfully",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "status": {
-                    "type": "string",
-                    "example": "success"
-                  },
-                  "message": {
-                    "type": "string",
-                    "example": "Blog updated successfully"
-                  },
-                  "data": {
-                    "type": "object",
-                    "$ref": "#/components/schemas/Blog"
+      "delete": {
+        "summary": "Delete a blog",
+        "description": "Deletes a delete.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "blogId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the blog to delete"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Blog deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Blog deleted successfully"
+                    }
                   }
                 }
               }
             }
-          }
-        },
-        "404": {
-          "description": "Blog not found",
-          "content": {
-            "$ref": "#/components/responses/404/content"
-          }
-        },
-        "422": {
-          "$ref": "#/components/responses/422"
-        }
-      }
-    },
-    "delete": {
-      "summary": "Delete a blog",
-      "description": "Deletes a delete.",
-      "parameters": [
-        {
-          "in": "path",
-          "name": "blogId",
-          "schema": {
-            "type": "string"
           },
-          "required": true,
-          "description": "The ID of the blog to delete"
-        }
-      ],
-      "responses": {
-        "204": {
-          "description": "Blog deleted successfully",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "status": {
-                    "type": "string",
-                    "example": "success"
-                  },
-                  "message": {
-                    "type": "string",
-                    "example": "Blog deleted successfully"
-                  }
-                }
-              }
+          "404": {
+            "description": "Blog not found",
+            "content": {
+              "$ref": "#/components/responses/404/content"
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
-        },
-        "404": {
-          "description": "Blog not found",
-          "content": {
-            "$ref": "#/components/responses/404/content"
-          }
-        },
-        "500": {
-          "$ref": "#/components/responses/500"
         }
       }
-    },
-
-    "/orgs": {},
-    "/blog": {},
-    "/auth/login": {},
-    "/auth/register": {},
-    "/email": {}
+    }
   },
   "components": {
     "securitySchemes": {
@@ -275,8 +269,8 @@
             "description": "A unique identifier for the blog",
             "readOnly": true
           },
-          "phone": {
-            "type": "userId",
+          "userId": {
+            "type": "string",
             "description": "User's ID. FK from User"
           },
           "title": {
@@ -288,10 +282,10 @@
             "description": "Blog's description"
           }
         },
-        "required": ["title", "description"]
+        "required": ["userId", "title", "description"]
       }
     },
-    
+
     "responses": {
       "422": {
         "description": "Validation Errors",
@@ -386,7 +380,6 @@
           }
         }
       }
-    },
-    "notFound": {}
+    }
   }
 }
